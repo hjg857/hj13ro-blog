@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f1e8;
+  --ink: #292c29;
+  --muted: #716f68;
+  --green: #49675a;
+  --line: #ccc6ba;
+  --soft: #ebe6dc;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.shell { width: min(1360px, calc(100% - 96px)); margin-inline: auto; }
+
+.site-header {
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: baseline; gap: 9px; font-family: Georgia, "Songti SC", serif; font-size: 26px; letter-spacing: -0.03em; }
+.brand small { font-family: Consolas, monospace; font-size: 10px; letter-spacing: .12em; color: var(--green); }
+nav { display: flex; gap: 38px; font-size: 14px; }
+nav a { position: relative; padding: 42px 0 39px; color: var(--muted); }
+nav a::after { content: ""; position: absolute; height: 1px; left: 0; right: 100%; bottom: 28px; background: var(--green); transition: right .2s ease; }
+nav a:hover, nav a.active { color: var(--ink); }
+nav a:hover::after, nav a.active::after { right: 0; }
+
+.hero { display: grid; grid-template-columns: 160px minmax(0, 1fr) 300px; gap: 72px; padding-block: 112px 104px; border-bottom: 1px solid var(--line); }
+.margin-note { padding-top: 10px; font-family: Consolas, monospace; font-size: 11px; letter-spacing: .12em; color: var(--muted); }
+.margin-note span, .margin-note strong { display: block; }
+.margin-note strong { color: var(--green); font-weight: 400; margin-top: 8px; }
+.margin-note p { margin-top: 74px; writing-mode: vertical-rl; letter-spacing: .2em; }
+.eyebrow, .section-heading > p, .about-label, .index-title { font: 11px/1.3 Consolas, monospace; letter-spacing: .15em; color: var(--green); }
+.hero h1 { margin: 28px 0 32px; font-family: Georgia, "Noto Serif SC", "Songti SC", serif; font-size: clamp(52px, 5vw, 78px); font-weight: 400; line-height: 1.17; letter-spacing: -.04em; }
+.intro { max-width: 600px; margin: 0 0 38px; font-size: 17px; line-height: 1.95; color: var(--muted); }
+.text-link { display: inline-flex; gap: 18px; align-items: center; padding-bottom: 7px; border-bottom: 1px solid var(--ink); font-size: 13px; transition: color .2s ease, gap .2s ease; }
+.text-link:hover { color: var(--green); gap: 24px; }
+.index-card { align-self: end; border-top: 1px solid var(--ink); }
+.index-title { margin: 18px 0 30px; }
+.index-card a { display: grid; grid-template-columns: 32px 1fr; gap: 4px 16px; padding: 17px 0; border-top: 1px solid var(--line); transition: transform .2s ease; }
+.index-card a:hover { transform: translateX(6px); }
+.index-card a span { grid-row: 1 / 3; font: 11px Consolas, monospace; color: var(--green); padding-top: 2px; }
+.index-card a strong { font-family: Georgia, "Songti SC", serif; font-size: 17px; font-weight: 400; }
+.index-card a small { color: var(--muted); font: 10px Consolas, monospace; }
+
+.latest { padding-block: 92px 108px; display: grid; grid-template-columns: 230px 1fr; gap: 62px; border-bottom: 1px solid var(--line); }
+.section-heading h2 { margin: 15px 0 17px; font: 400 34px Georgia, "Songti SC", serif; }
+.section-heading > span { font-size: 12px; color: var(--muted); }
+.post { display: grid; grid-template-columns: 52px 1fr 44px; gap: 24px; padding: 36px 0 38px; border-top: 1px solid var(--line); }
+.post:first-child { border-color: var(--ink); }
+.post-index { font: 12px Consolas, monospace; color: var(--green); }
+.post-meta { display: flex; gap: 20px; margin-bottom: 14px; font: 10px Consolas, monospace; letter-spacing: .08em; color: var(--muted); }
+.post-meta span { color: var(--green); }
+.post h3 { margin: 0 0 14px; font: 400 clamp(24px, 2.4vw, 34px) Georgia, "Noto Serif SC", "Songti SC", serif; }
+.post h3 a { background: linear-gradient(var(--green), var(--green)) left bottom / 0 1px no-repeat; transition: background-size .25s ease; }
+.post h3 a:hover { background-size: 100% 1px; }
+.post-body > p { max-width: 700px; margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.tags { display: flex; flex-wrap: wrap; gap: 14px; font: 10px Consolas, monospace; color: var(--muted); }
+.post-arrow { font: 24px Georgia, serif; transition: transform .2s ease, color .2s ease; }
+.post-arrow:hover { transform: translate(4px, -4px); color: var(--green); }
+
+.about { display: grid; grid-template-columns: 230px 1fr 320px; gap: 62px; padding-block: 96px; align-items: start; }
+.about blockquote { margin: 0; font: 400 clamp(30px, 3.2vw, 48px)/1.5 Georgia, "Noto Serif SC", "Songti SC", serif; }
+.about-copy { color: var(--muted); font-size: 14px; line-height: 1.9; }
+.about-copy .text-link { margin-top: 22px; color: var(--ink); }
+footer { min-height: 108px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; font: 10px Consolas, monospace; letter-spacing: .08em; color: var(--muted); }
+footer a:hover { color: var(--green); }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 90px 1fr; gap: 44px; }
+  .index-card { grid-column: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .index-title { grid-column: 1 / -1; }
+  .latest, .about { grid-template-columns: 160px 1fr; gap: 44px; }
+  .about-copy { grid-column: 2; }
+}
+@media (max-width: 700px) {
+  .shell { width: min(100% - 40px, 1360px); }
+  .site-header { min-height: 78px; align-items: flex-start; padding-top: 24px; }
+  nav { gap: 18px; overflow-x: auto; max-width: 62%; }
+  nav a { padding: 5px 0 22px; white-space: nowrap; font-size: 12px; }
+  nav a::after { bottom: 13px; }
+  .hero { display: block; padding-block: 68px 64px; }
+  .margin-note { display: none; }
+  .hero h1 { margin-top: 22px; }
+  .intro { font-size: 15px; }
+  .index-card { display: block; margin-top: 64px; }
+  .latest, .about { display: block; padding-block: 64px; }
+  .section-heading { margin-bottom: 36px; }
+  .post { grid-template-columns: 34px 1fr; gap: 14px; }
+  .post-arrow { display: none; }
+  .about blockquote { margin: 28px 0 36px; }
+  footer { padding-block: 30px; gap: 18px; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
