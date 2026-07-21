@@ -46,7 +46,6 @@ export default function Home() {
           <p>记录研究、学习与持续思考</p>
           <a className="scroll-down" href="#posts" aria-label="向下浏览">⌄</a>
         </div>
-        <span className="photo-credit">Photo by Brett Meliti · Unsplash</span>
       </section>
 
       <div className="page-shell" id="posts">
@@ -74,7 +73,7 @@ export default function Home() {
 
         <aside className="sidebar" aria-label="博客侧栏">
           <section className="side-card profile-card" id="about">
-            <div className="avatar">HJ</div>
+            <img className="avatar" src="/avatar-anime.png" alt="hJ13ro 的动漫头像" />
             <h2>hJ13ro</h2>
             <p>保持好奇，持续记录。</p>
             <div className="stats">
