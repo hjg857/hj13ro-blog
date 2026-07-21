@@ -73,7 +73,7 @@ export default function Home() {
 
         <aside className="sidebar" aria-label="博客侧栏">
           <section className="side-card profile-card" id="about">
-            <img className="avatar" src="/avatar-anime.png" alt="hJ13ro 的动漫头像" />
+            <img className="avatar" src="/avatar-chibi.png" alt="hJ13ro 的 Q 版动漫头像" />
             <h2>hJ13ro</h2>
             <p>保持好奇，持续记录。</p>
             <div className="stats">
