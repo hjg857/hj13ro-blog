@@ -25,10 +25,15 @@ const posts = [
   },
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function Home() {
   return (
     <main id="top">
-      <section className="hero">
+      <section
+        className="hero"
+        style={{ backgroundImage: `url("${basePath}/hero-everest.png")` }}
+      >
         <header className="topbar">
           <a className="logo" href="#top">hJ13ro Blog</a>
           <nav aria-label="主导航">
@@ -57,7 +62,16 @@ export default function Home() {
 
           {posts.map((post, index) => (
             <article className={`post-card ${index % 2 ? "reverse" : ""}`} key={post.title}>
-              <div className={`post-cover ${post.cover}`} role="img" aria-label={`${post.title}的文章封面`}>
+              <div
+                className={`post-cover ${post.cover}`}
+                style={
+                  post.cover === "mountain"
+                    ? { backgroundImage: `url("${basePath}/hero-mountain.jpg")` }
+                    : undefined
+                }
+                role="img"
+                aria-label={`${post.title}的文章封面`}
+              >
                 <span>{post.category}</span>
               </div>
               <div className="post-content">
@@ -73,7 +87,7 @@ export default function Home() {
 
         <aside className="sidebar" aria-label="博客侧栏">
           <section className="side-card profile-card" id="about">
-            <img className="avatar" src="/avatar-chibi.png" alt="hJ13ro 的 Q 版动漫头像" />
+            <img className="avatar" src={`${basePath}/avatar-chibi.png`} alt="hJ13ro 的 Q 版动漫头像" />
             <h2>hJ13ro</h2>
             <p>保持好奇，持续记录。</p>
             <div className="stats">

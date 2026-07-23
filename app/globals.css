@@ -16,7 +16,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--text); background: radial-gradient(circle at 8% 20%, rgba(73,177,245,.08), transparent 24rem), var(--background); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 
-.hero { height: 100vh; height: 100svh; min-height: 640px; position: relative; color: #fff; background: url("/hero-everest.png") center center / cover no-repeat; overflow: hidden; }
+.hero { height: 100vh; height: 100svh; min-height: 640px; position: relative; color: #fff; background-position: center center; background-size: cover; background-repeat: no-repeat; overflow: hidden; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,35,58,.35), rgba(18,67,97,.12) 48%, rgba(15,42,64,.48)); }
 .topbar { position: relative; z-index: 2; height: 72px; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 2px 8px rgba(0,0,0,.25); }
 .logo { font-weight: 800; font-size: 21px; letter-spacing: .01em; }
@@ -46,7 +46,7 @@ nav a:hover::after { left: 0; right: 0; }
 .post-cover { position: relative; min-height: 286px; overflow: hidden; background-position: center; background-size: cover; transition: transform .45s ease, filter .45s ease; }
 .post-card:hover .post-cover { filter: saturate(1.12); }
 .post-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 40%, rgba(16,50,74,.28)); }
-.post-cover.mountain { background-image: url("/hero-mountain.jpg"); }
+.post-cover.mountain { background-position: center; background-size: cover; }
 .post-cover.aurora { background: radial-gradient(circle at 70% 30%, #9df2ff 0 5%, transparent 28%), linear-gradient(135deg, #1a4b71, #35b0c8 48%, #7bdcb5); }
 .post-cover.sunset { background: radial-gradient(circle at 70% 28%, #fff3b0 0 5%, transparent 7%), linear-gradient(155deg, #7b68b7, #ff8e89 52%, #ffc46b); }
 .post-cover span { position: absolute; z-index: 2; left: 18px; top: 18px; padding: 5px 11px; border-radius: 999px; color: #fff; background: rgba(0,0,0,.28); backdrop-filter: blur(8px); font-size: 12px; }

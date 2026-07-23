@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const imageUrl = `${protocol}://${host}/og-v4.png`;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://hj13ro-blog.sunset-plum-3733.chatgpt.site";
+const imageUrl = `${siteUrl}${basePath}/og-v4.png`;
 
-  return {
+export const metadata: Metadata = {
     title: "hJ13ro Blog｜研究、学习与持续思考",
     description: "记录论文阅读、知识笔记与个人文章的公开研究手记。",
     openGraph: {
@@ -23,8 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "记录研究、学习与持续思考",
       images: [imageUrl],
     },
-  };
-}
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
