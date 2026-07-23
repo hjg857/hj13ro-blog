@@ -1,29 +1,6 @@
-const posts = [
-  {
-    category: "论文阅读",
-    date: "2026-07-18",
-    title: "从扩散模型理解生成式学习",
-    excerpt: "梳理前向加噪、反向去噪与得分匹配之间的联系，记录论文中的关键推导与直觉。",
-    tags: ["Diffusion", "Generative AI"],
-    cover: "mountain",
-  },
-  {
-    category: "知识笔记",
-    date: "2026-07-12",
-    title: "Transformer 注意力机制笔记",
-    excerpt: "从矩阵运算出发，重新理解 Query、Key、Value 以及多头注意力的设计动机。",
-    tags: ["Transformer", "Deep Learning"],
-    cover: "aurora",
-  },
-  {
-    category: "个人文章",
-    date: "2026-07-05",
-    title: "如何建立个人知识系统",
-    excerpt: "让阅读、思考与写作形成闭环，把零散信息逐渐整理成可复用的知识。",
-    tags: ["Learning", "Writing"],
-    cover: "sunset",
-  },
-];
+import Link from "next/link";
+import { posts } from "./blog-data";
+import SiteHeader from "./components/SiteHeader";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -34,16 +11,7 @@ export default function Home() {
         className="hero"
         style={{ backgroundImage: `url("${basePath}/hero-everest.png")` }}
       >
-        <header className="topbar">
-          <a className="logo" href="#top">hJ13ro Blog</a>
-          <nav aria-label="主导航">
-            <a href="#top">⌂ 首页</a>
-            <a href="#posts">▤ 文章</a>
-            <a href="#categories">▦ 分类</a>
-            <a href="#tags"># 标签</a>
-            <a href="#about">♙ 关于</a>
-          </nav>
-        </header>
+        <SiteHeader overlay />
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="hero-kicker">WELCOME TO MY DIGITAL GARDEN</p>
@@ -76,10 +44,10 @@ export default function Home() {
               </div>
               <div className="post-content">
                 <div className="post-meta"><span>◷ {post.date}</span><span>▣ {post.category}</span></div>
-                <h2><a href="#">{post.title}</a></h2>
+                <h2><Link href="/posts">{post.title}</Link></h2>
                 <p>{post.excerpt}</p>
                 <div className="tag-row">{post.tags.map((tag) => <span key={tag}>#{tag}</span>)}</div>
-                <a className="read-more" href="#">阅读全文 →</a>
+                <Link className="read-more" href="/posts">阅读全文 →</Link>
               </div>
             </article>
           ))}
@@ -91,9 +59,9 @@ export default function Home() {
             <h2>hJ13ro</h2>
             <p>保持好奇，持续记录。</p>
             <div className="stats">
-              <a href="#posts"><strong>3</strong><span>文章</span></a>
-              <a href="#categories"><strong>3</strong><span>分类</span></a>
-              <a href="#tags"><strong>6</strong><span>标签</span></a>
+              <Link href="/posts"><strong>3</strong><span>文章</span></Link>
+              <Link href="/categories"><strong>3</strong><span>分类</span></Link>
+              <Link href="/tags"><strong>6</strong><span>标签</span></Link>
             </div>
             <a className="follow" href="mailto:hello@example.com">联系我</a>
             <div className="socials"><a href="#" aria-label="GitHub">GH</a><a href="#" aria-label="RSS">RSS</a><a href="#" aria-label="电子邮件">@</a></div>
@@ -106,14 +74,14 @@ export default function Home() {
 
           <section className="side-card" id="categories">
             <h3><span>▦</span> 分类</h3>
-            <a className="category" href="#"><span>论文阅读</span><b>1</b></a>
-            <a className="category" href="#"><span>知识笔记</span><b>1</b></a>
-            <a className="category" href="#"><span>个人文章</span><b>1</b></a>
+            <Link className="category" href="/categories"><span>论文阅读</span><b>1</b></Link>
+            <Link className="category" href="/categories"><span>知识笔记</span><b>1</b></Link>
+            <Link className="category" href="/categories"><span>个人文章</span><b>1</b></Link>
           </section>
 
           <section className="side-card" id="tags">
             <h3><span>#</span> 标签</h3>
-            <div className="tag-cloud"><a href="#">Diffusion</a><a href="#">Transformer</a><a href="#">Deep Learning</a><a href="#">Learning</a><a href="#">Writing</a><a href="#">Generative AI</a></div>
+            <div className="tag-cloud"><Link href="/tags">Diffusion</Link><Link href="/tags">Transformer</Link><Link href="/tags">Deep Learning</Link><Link href="/tags">Learning</Link><Link href="/tags">Writing</Link><Link href="/tags">Generative AI</Link></div>
           </section>
         </aside>
       </div>
